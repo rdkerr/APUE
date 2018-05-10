@@ -3,7 +3,14 @@ more than one header. For example, in FreeBSD 8.0, size_t is defined in 29 diffe
 headers. Because all 29 headers could be included in a program and because ISO C does
 not allow multiple typedefs for the same name, how must the headers be written?
 
-Headers must include the correct path otherwise a wrong implementation could be used
+In each of the headers that can define the size_t primitive system data type, we have the sequence
+
+    #ifndef _SIZE_T_DECLARED
+    typedef __size_t      size_t;
+    #define _SIZE_T_DECLARED
+    #endif
+
+This way, the typedef for size_t is executed only once.
 
 2.2 Examine your system’s headers and list the actual data types used to implement the
 primitive system data types.
