@@ -1,4 +1,4 @@
-#include "apue.h"
+#include "../include/apue.h"
 #include <errno.h>
 #include <limits.h>
 #ifdef OPEN_MAX
@@ -10,6 +10,12 @@ static long openmax = 0;
 * If OPEN_MAX is indeterminate, this might be inadequate.
 */
 #define OPEN_MAX_GUESS 256
+
+int main(void) {
+	printf("%li\n",open_max());
+	exit(0);
+}
+
 long open_max(void) {
 	if (openmax == 0) { /* first time through */
 		errno = 0;
