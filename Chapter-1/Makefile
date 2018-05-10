@@ -14,7 +14,8 @@ LIBAPUE=$(ROOT)/lib/libapue.a
 # Common temp files to delete from each directory.
 TEMPFILES=core core.* *.o temp.* *.out
 
-PROGS =	myls
+PROGS =	myls standard_copy print_pid input_and_execute error_demo \
+		print_ids in_and_ex_with_signal
 
 all:	$(PROGS)
 
